@@ -3,13 +3,11 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 
 export default function BlogPost({ post }) {
     // {console.log("POST", post.title)}
-    // const Component = useMDXComponent(post.body.code);
+    const Component = useMDXComponent(post.body.code);
 
     return (
         <div>
-            hello
-            {/* {post.title} */}
-            {/* <Component /> */}
+            <Component />
         </div>
     );
 }
@@ -28,8 +26,6 @@ export async function getStaticProps(context) {
     let params = context.params;
     // const post = allBlogPosts.find((post) => post.url == params.slug);
     const post = allBlogPosts.find((post) => {
-        console.log("URL IS", post.url);
-        console.log("PARAMS.slug", "/blog/"+params.slug);
         return post.url == "/blog/"+params.slug
     });
     console.log("POST", post)
