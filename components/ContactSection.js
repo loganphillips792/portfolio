@@ -7,11 +7,11 @@ const StyledSection = styled.div`
 
 `;
 
-export default function About() {
+export default function Contact() {
 
     return (
-        <StyledSection id="about-section">
-            <h1>About</h1>
+        <StyledSection>
+            <h1>Contact</h1>
         </StyledSection>
     );
 }
