@@ -1,20 +1,11 @@
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { MARKS, BLOCKS } from "@contentful/rich-text-types";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { obsidian } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import Head from 'next/head';
-import fs from 'fs';
-import { join } from 'path';
-import remark from "remark";
-import html from 'remark-html'
-import matter from 'gray-matter'
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
-import "swiper/swiper.min.css";
-import "swiper/components/navigation/navigation.min.css"
-import "swiper/components/pagination/pagination.min.css"
+// import "swiper/swiper.min.css";
+// import "swiper/components/navigation/navigation.min.css"
+// import "swiper/components/pagination/pagination.min.css"
 
 // import Swiper core and required modules
 import SwiperCore, {
@@ -104,16 +95,16 @@ export default function ProjectDetail({ project }) {
     <Container>
       <Head>
         <title>
-          {project.name}
+          {/* {project.name} */}
         </title>
       </Head>
 
       <ProjectHero>
         <div className="content">
-          <Name>{project.name}</Name>
+          {/* <Name>{project.name}</Name> */}
 
           <Description>
-            {project.description}
+            {/* {project.description} */}
           </Description>
 
           <RepositoryLink href="https://github.com/loganphillips792/vrware-web-app" target="_blank" rel="noopener noreferrer">View repository</RepositoryLink>
@@ -122,12 +113,12 @@ export default function ProjectDetail({ project }) {
       </ProjectHero>
 
       <Content>
-        <div
+        {/* <div
           dangerouslySetInnerHTML={{ __html: project.content }}
-        />
+        /> */}
       </Content>
 
-      {project.project_image_links &&
+      {/* {project.project_image_links &&
         <Swiper
           cssMode={true}
           navigation={true}
@@ -142,93 +133,93 @@ export default function ProjectDetail({ project }) {
               <img src={link} />
             </SwiperSlide>
           ))}
-        </Swiper>
-      }
+        </Swiper> */}
+      
     </Container>
   )
 }
 
-export async function getStaticProps({ params }) {
-  const project = getProjectBySlug(params.slug, [
-    'name',
-    'description',
-    'date',
-    'slug',
-    'author',
-    'content',
-    'ogImage',
-    'coverImage',
-    'project_image_links'
-  ])
+// export async function getStaticProps({ params }) {
+//   const project = getProjectBySlug(params.slug, [
+//     'name',
+//     'description',
+//     'date',
+//     'slug',
+//     'author',
+//     'content',
+//     'ogImage',
+//     'coverImage',
+//     'project_image_links'
+//   ])
 
-  const content = await markdownToHtml(project.content || '');
+//   const content = await markdownToHtml(project.content || '');
 
-  return {
-    props: {
-      project: {
-        ...project,
-        content,
-      },
-    },
-  }
-}
+//   return {
+//     props: {
+//       project: {
+//         ...project,
+//         content,
+//       },
+//     },
+//   }
+// }
 
-async function markdownToHtml(markdown) {
-  const result = await remark().use(html).process(markdown)
-  return result.toString();
-}
+// async function markdownToHtml(markdown) {
+//   const result = await remark().use(html).process(markdown)
+//   return result.toString();
+// }
 
-export async function getStaticPaths() {
-  const projects = getAllProjects(['slug'])
+// export async function getStaticPaths() {
+//   const projects = getAllProjects(['slug'])
 
-  return {
-    paths: projects.map((project) => {
-      return {
-        params: {
-          slug: project.slug,
-        },
-      }
-    }),
-    fallback: false,
-  }
-}
+//   return {
+//     paths: projects.map((project) => {
+//       return {
+//         params: {
+//           slug: project.slug,
+//         },
+//       }
+//     }),
+//     fallback: false,
+//   }
+// }
 
-const projectsDirectory = join(process.cwd(), '_projects');
+// const projectsDirectory = join(process.cwd(), '_projects');
 
-function getProjectSlugs() {
-  return fs.readdirSync(projectsDirectory);
-}
+// function getProjectSlugs() {
+//   return fs.readdirSync(projectsDirectory);
+// }
 
-function getProjectBySlug(slug, fields) {
-  const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(projectsDirectory, `${realSlug}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data, content } = matter(fileContents)
+// function getProjectBySlug(slug, fields) {
+//   const realSlug = slug.replace(/\.md$/, '')
+//   const fullPath = join(projectsDirectory, `${realSlug}.md`)
+//   const fileContents = fs.readFileSync(fullPath, 'utf8')
+//   const { data, content } = matter(fileContents)
 
 
-  const items = {}
+//   const items = {}
 
-  // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
-    if (field === 'slug') {
-      items[field] = realSlug
-    }
-    if (field === 'content') {
-      items[field] = content
-    }
+//   // Ensure only the minimal needed data is exposed
+//   fields.forEach((field) => {
+//     if (field === 'slug') {
+//       items[field] = realSlug
+//     }
+//     if (field === 'content') {
+//       items[field] = content
+//     }
 
-    if (data[field]) {
-      items[field] = data[field]
-    }
-  })
+//     if (data[field]) {
+//       items[field] = data[field]
+//     }
+//   })
 
-  return items
+//   return items
 
-}
+// }
 
-function getAllProjects(fields) {
-  const slugs = getProjectSlugs()
-  const projects = slugs.map((slug) => getProjectBySlug(slug, fields))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-  return projects
-}
+// function getAllProjects(fields) {
+//   const slugs = getProjectSlugs()
+//   const projects = slugs.map((slug) => getProjectBySlug(slug, fields))
+//     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+//   return projects
+// }

@@ -11,11 +11,15 @@
   "dependencies": {
     "contentlayer": "^0.1.2",
     "date-fns": "^2.28.0",
+    "fs": "^0.0.1-security",
     "next": "12.1.0",
     "next-contentlayer": "^0.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "styled-components": "^5.3.5"
+    "remark": "^14.0.2",
+    "remark-html": "^15.0.1",
+    "styled-components": "^5.3.5",
+    "swiper": "^8.0.7"
   },
   "devDependencies": {
     "@types/react": "^17.0.41",
