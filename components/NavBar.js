@@ -77,26 +77,26 @@ export default function NavBar() {
         <StyledNavBar>
             <div className="nav-bar-links-container">
                 <div>
-                    <a onClick={() => handleClick('home')}>Home</a>
+                    <Link href="/#home-section">Home</Link>
                 </div>
 
                 <div>
-                    <a onClick={() => handleClick('about')}>About</a>
+                    <Link href="/#about-section">About</Link>
                 </div>
 
                 <div>
-                    <a onClick={() => handleClick('experience')}>Experience</a>
+                    <Link href="/#experience-section" scroll={true}>Experience</Link>
                 </div>
                 <div>
-                    <a onClick={() => handleClick('projects')}>Projects</a>
-                </div>
-
-                <div>
-                    <a onClick={() => handleClick('contact')}>Contact</a>
+                    <Link href="/#projects-section">Projects</Link>
                 </div>
 
                 <div>
-                    <a href="/blog">Blog</a>
+                    <Link href="/#contact-section">Contact</Link>
+                </div>
+
+                <div>
+                    <Link href="/blog">Blog</Link>
                 </div>
             </div>
         </StyledNavBar>
