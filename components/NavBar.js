@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css';
-import Link from 'next/Link';
+import Link from 'next/link';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
@@ -85,7 +85,7 @@ export default function NavBar() {
                 </div>
 
                 <div>
-                    <Link href="/#experience-section" scroll={true}>Experience</Link>
+                    <Link href="/#experience-section">Experience</Link>
                 </div>
                 <div>
                     <Link href="/#projects-section">Projects</Link>
