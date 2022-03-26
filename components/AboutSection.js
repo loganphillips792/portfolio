@@ -1,6 +1,3 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css';
-import Link from 'next/Link';
 import styled from 'styled-components';
 
 const StyledSection = styled.div`
