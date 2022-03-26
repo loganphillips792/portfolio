@@ -1,11 +1,7 @@
-import Head from 'next/head'
-import AboutSection from "./AboutSection";
-import TechStackSection from "./TechStackSection";
-import WorkExperienceSection from "./WorkExperienceSection";
-import Projects from "./ProjectsSection";
-import ContactSection from "./ContactSection";
-import styled, { keyframes, createGlobalStyle } from "styled-components";
+import Image from 'next/image'
+import styled, { keyframes} from "styled-components";
 import { GitHubIcon, LinkedInIcon, FlaskIcon, ReactIcon, DjangoIcon, PostgresIcon, TypescriptIcon, DockerIcon, GoLangIcon } from "./icons";
+import profilePic from "../public/static/images/profile.jpeg";
 
 const changeColors = keyframes`
   0% {
@@ -128,7 +124,10 @@ export default function Hero() {
         <StyledHero id="home-section">
             <div className="center-content">
                 <div className="image-container">
-                    <img src="./static/images/profile.jpeg" />
+                    <Image 
+                      src={profilePic}
+                      alt="Picture of developer"
+                    />
                 </div>
 
                 <div className="intro">
