@@ -137,7 +137,7 @@ export default function Projects() {
                     <div className="card-content">
                         <div className="card-title">VRWare</div>
                         <div className="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum esse, dolore aperiam eaque exercitationem voluptatibus.</div>
-                        <Link href="/project/vrware">
+                        <Link href="/projects/vrware">
                             <a className="button" target="_blank" rel="noopener noreferrer">Learn more</a>
                         </Link>
                     </div>
@@ -146,7 +146,7 @@ export default function Projects() {
                     <div className="card-content">
                         <div className="card-title">Meister Task Clone</div>
                         <div className="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum esse, dolore aperiam eaque exercitationem voluptatibus.</div>
-                        <Link href="/project/meister-task-clone">
+                        <Link href="/projects/meister-task-clone">
                             <a className="button" target="_blank" rel="noopener noreferrer">Learn more</a>
                         </Link>
                     </div>

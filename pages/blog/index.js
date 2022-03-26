@@ -3,7 +3,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { compareDesc, format, parseISO } from 'date-fns';
-import { allBlogPosts } from '../../.contentlayer/generated';
+import { allBlogPosts, allProjects } from '../../.contentlayer/generated';
 
 // change to "BlogPostPreview"
 function PostCard(post) {
@@ -38,8 +38,10 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
+  console.log("ALL BLOG POSTS", allBlogPosts)
   const posts = allBlogPosts.sort((a, b) => {
     return compareDesc(new Date(a.date), new Date(b.date))
   })
+  console.log("POSTS", posts)
   return { props: { posts } }
 }

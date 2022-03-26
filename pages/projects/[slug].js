@@ -1,6 +1,10 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { allProjects } from "../../.contentlayer/generated";
+import components from '/components/MDXComponents';
+
+
 
 // Import Swiper styles
 // import "swiper/swiper.min.css";
@@ -11,6 +15,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, {
   Navigation, Pagination, Mousewheel, Keyboard
 } from 'swiper/core';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard]);
@@ -91,6 +96,7 @@ const Description = styled.div``;
 const Content = styled.div``;
 
 export default function ProjectDetail({ project }) {
+  const Component = useMDXComponent(project.body.code);
   return (
     <Container>
       <Head>
@@ -101,13 +107,13 @@ export default function ProjectDetail({ project }) {
 
       <ProjectHero>
         <div className="content">
-          {/* <Name>{project.name}</Name> */}
+          <Name>{project.name}</Name>
 
           <Description>
-            {/* {project.description} */}
+            {project.description}
           </Description>
 
-          <RepositoryLink href="https://github.com/loganphillips792/vrware-web-app" target="_blank" rel="noopener noreferrer">View repository</RepositoryLink>
+          <RepositoryLink href={project.repository_link} target="_blank" rel="noopener noreferrer">View repository</RepositoryLink>
 
         </div>
       </ProjectHero>
@@ -134,9 +140,43 @@ export default function ProjectDetail({ project }) {
             </SwiperSlide>
           ))}
         </Swiper> */}
+          <Component
+                components={
+                    {
+                        ...components,
+                    }
+                }
+            />
       
     </Container>
   )
+}
+
+export async function getStaticPaths() {
+  //const paths = allBlogPosts.map((post) => ({ params: { slug: post.url}}));
+  console.log("ALL PROJECTS", allProjects)
+
+  const paths = allProjects.map((project) => project.slug);
+  console.log("PATHS", paths)
+  return {
+      paths,
+      fallback: false,
+  };
+}
+
+export async function getStaticProps(context) {
+  console.log("PARAMS SLUG", context.params.slug)
+  let params = context.params;
+  // const post = allBlogPosts.find((post) => post.url == params.slug);
+  const project = allProjects.find((project) => {
+      return project.slug == "/projects/" + params.slug
+  });
+  // console.log("Project", project)
+  return {
+      props: {
+          project
+      },
+  };
 }
 
 // export async function getStaticProps({ params }) {
