@@ -7,6 +7,8 @@ const BlogPost = defineDocumentType(() => ({
   fields: {
     title: { type: 'string', description: 'The title of the post', required: true, },
     date: { type: 'date', description: 'The date of the post', required: true, },
+    summary: { type: 'string', description: 'Summary of the post', required: true, },
+    tags: { type: 'list', of: { type: 'string' } },
   },
   computedFields: {
     url: {

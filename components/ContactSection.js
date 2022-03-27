@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 const StyledSection = styled.div`
-
+    h1 {
+        text-align: center;
+    }
 `;
 
 export default function Contact() {

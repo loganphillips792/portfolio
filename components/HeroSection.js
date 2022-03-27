@@ -131,7 +131,7 @@ export default function Hero() {
                 </div>
 
                 <div className="intro">
-                    <h1>Hi, my name is Logan.</h1>
+                    <h1>Hi, I'm Logan!.</h1>
                     <h2>Full stack engineer focusing on backend-end development</h2>
                 </div>
             </div>

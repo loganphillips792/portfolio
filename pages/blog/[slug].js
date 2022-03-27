@@ -4,7 +4,6 @@ import components from '/components/MDXComponents';
 
 
 export default function BlogPost({ post }) {
-    { console.log("POST", post) }
     const Component = useMDXComponent(post.body.code);
 
     return (
@@ -24,7 +23,6 @@ export async function getStaticPaths() {
     //const paths = allBlogPosts.map((post) => ({ params: { slug: post.url}}));
 
     const paths = allBlogPosts.map((post) => post.url);
-    console.log(paths)
     return {
         paths,
         fallback: false,
@@ -32,7 +30,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-    console.log("PARAMS SLUG", context.params.slug)
     let params = context.params;
     // const post = allBlogPosts.find((post) => post.url == params.slug);
     const post = allBlogPosts.find((post) => {

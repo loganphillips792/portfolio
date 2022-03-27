@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { FlaskIcon, ReactIcon, DjangoIcon, PostgresIcon, TypescriptIcon, DockerIcon, GoLangIcon, ReduxIcon } from "../components/icons";
-import { darkTheme } from "../components/Themes"
 
 const StyledTechStackSection = styled.div`
   font-weight: 500;
@@ -22,14 +21,11 @@ const StyledTechStackSection = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background-color: rgb(54, 59, 73);
+      // background-color: rgb(54, 59, 73);
+      background-color: ${props => props.theme.divBackground};
       padding: 8px 12px;
       border-radius: 6px;
       width: 133px;
-
-      span {
-        color: ${darkTheme.text};
-      }
     }
   }
 `;

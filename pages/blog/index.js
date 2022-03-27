@@ -4,6 +4,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { compareDesc, format, parseISO } from 'date-fns';
 import { allBlogPosts, allProjects } from '../../.contentlayer/generated';
+import styled from 'styled-components';
+import BlogPostPreview from '../../components/BlogPostPreview';
 
 // change to "BlogPostPreview"
 function PostCard(post) {
@@ -13,7 +15,7 @@ function PostCard(post) {
         {format(parseISO(post.date), 'LLLL d, yyyy')}
       </time>
       <h2 className="text-lg">
-        <Link href={post.url}>
+        <Link>
           <a className="text-blue-700 hover:text-blue-900">{post.title}</a>
         </Link>
       </h2>
@@ -21,27 +23,38 @@ function PostCard(post) {
   )
 }
 
+const Container = styled.div``;
+
+const Heading = styled.div`
+  h1 {
+    font-size: 60px;
+  }
+
+  text-align: center;
+`;
+
 export default function Home({ posts }) {
   return (
-    <div className="max-w-2xl mx-auto py-16 text-center">
-      <Head>
-        <title>Contentlayer Blog Example</title>
+    <Container>
+       <Head>
+        <title>Blog</title>
       </Head>
 
-      <h1 className="text-3xl font-bold mb-8">Contentlayer Blog Example</h1>
+      <Heading>
+        <h1>Blog</h1>
+        <span>I have written {posts.length} articles, which I update regularly. You can find them below.</span>
+      </Heading>
 
       {posts.map((post, idx) => (
-        <PostCard key={idx} {...post} />
+        <BlogPostPreview key={idx} {...post}/>
       ))}
-    </div>
+    </Container>
   )
 }
 
 export async function getStaticProps() {
-  console.log("ALL BLOG POSTS", allBlogPosts)
   const posts = allBlogPosts.sort((a, b) => {
     return compareDesc(new Date(a.date), new Date(b.date))
   })
-  console.log("POSTS", posts)
   return { props: { posts } }
 }

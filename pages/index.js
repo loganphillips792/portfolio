@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
     transition: all 0.50s linear;
     //color: #c9c9cb;
     font-family: Open-Sans;
-    font-weight: 800;
+    //font-weight: 800;
   }
 `;
 

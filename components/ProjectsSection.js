@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const StyledSection = styled.div``;
+const StyledSection = styled.div`
+    h1 {
+        text-align: center;
+    }
+`;
 
 const ProjectsGrid = styled.div`
     display: flex;
@@ -131,7 +135,6 @@ export default function Projects() {
     return (
         <StyledSection id="projects-section">
             <h1>Projects</h1>
-
             <ProjectsGrid>
                 <ProjectCard backgroundUrl="https://media.istockphoto.com/photos/the-perfect-setting-to-complete-work-picture-id1251629816?b=1&k=6&m=1251629816&s=170667a&w=0&h=iRUpfVwLFMhCh8DzqoYTWSQyJLaQMgOWN7Imnt8WZ8s=">
                     <div className="card-content">
