@@ -86,11 +86,6 @@ const StyledHero = styled.div`
         border-radius: 30px;
       }
     }
-
-    .intro h1,
-    .intro h2 {
-      line-height: 100px;
-    }
   }
 `;
 
@@ -130,7 +125,7 @@ export default function Hero() {
                     />
                 </div>
 
-                <div className="intro">
+                <div>
                     <h1>Hi, I'm Logan!.</h1>
                     <h2>Full stack engineer focusing on backend-end development</h2>
                 </div>
