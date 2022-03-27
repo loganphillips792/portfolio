@@ -32,7 +32,7 @@ const BlogPostPreview = (post) => {
                     <Tags>
                         {post.tags.map((tag, i) => {
                             return (
-                                <div>{tag}</div>
+                                <div key={i}>{tag}</div>
                             );
                         })}
                     </Tags>
