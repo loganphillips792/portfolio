@@ -95,9 +95,9 @@ export default function NavBar() {
                     <Link href="/#contact-section">Contact</Link>
                 </div>
 
-                <div>
+                {/* <div>
                     <Link href="/blog">Blog</Link>
-                </div>
+                </div> */}
             </div>
         </StyledNavBar>
     )

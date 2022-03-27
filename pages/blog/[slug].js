@@ -20,8 +20,6 @@ export default function BlogPost({ post }) {
 }
 
 export async function getStaticPaths() {
-    //const paths = allBlogPosts.map((post) => ({ params: { slug: post.url}}));
-
     const paths = allBlogPosts.map((post) => post.url);
     return {
         paths,
