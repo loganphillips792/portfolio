@@ -1,21 +1,22 @@
 import { allBlogPosts } from "../../.contentlayer/generated";
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import components from '/components/MDXComponents';
+import BlogLayout from "../../components/BlogLayout";
 
 
 export default function BlogPost({ post }) {
     const Component = useMDXComponent(post.body.code);
 
     return (
-        <div>
-            <Component
+       <BlogLayout post={post}>
+           <Component
                 components={
                     {
                         ...components,
                     }
                 }
             />
-        </div>
+       </BlogLayout>
     );
 }
 
