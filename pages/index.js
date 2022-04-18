@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import variables from '../styles/variables';
 import Head from 'next/head'
 import DarkModeToggle from '../components/DarkModeToggle';
 import HeroSection from "../components/HeroSection";
@@ -7,6 +8,7 @@ import TechStackSection from "../components/TechStackSection";
 import WorkExperienceSection from "../components/WorkExperienceSection";
 import Projects from "../components/ProjectsSection";
 import ContactSection from "../components/ContactSection";
+import Footer from "../components/Footer";
 import styled, { createGlobalStyle } from "styled-components";
 import {ThemeProvider} from "styled-components";
 import { lightTheme, darkTheme } from "../components/Themes"
@@ -25,6 +27,9 @@ const Container = styled.div`
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+  ${variables}
+
   body {
     background-color: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
@@ -36,15 +41,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default function Home() {
-  // const [theme, setTheme] = useState('light');
-
   const [theme, themeToggler] = useDarkMode();
-
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
-
-  // const themeToggler = () => {
-  //   theme === 'light' ? setTheme('dark') : setTheme('light');
-  // }
 
   return (
    <ThemeProvider theme={themeMode}>
@@ -59,12 +57,14 @@ export default function Home() {
       <div className="darkmode-toggle-container">
         <DarkModeToggle toggleTheme={themeToggler}/>
       </div>
+
       <HeroSection />
       <TechStackSection />
       <AboutSection />
       <WorkExperienceSection />
       <Projects />
       <ContactSection />
+      <Footer />
     </Container>
    </ThemeProvider>
   )
