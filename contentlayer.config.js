@@ -45,6 +45,6 @@ export default makeSource({
   documentTypes: [BlogPost, Project],
   mdx: {
     rehypePlugins: [rehypePrism]
-    // rehypePlugins: [rehypePrism, rehypeCodeTitles]
+    //rehypePlugins: [rehypePrism, rehypeCodeTitles]
   }
 })
