@@ -99,9 +99,9 @@ export default function WorkExperienceSection() {
 
             <PanelContainer>
                 <StyledTabButtonList>
-                    {jobs.map(job => {
+                    {jobs.map((job,index) => {
                         return (
-                            <StyledTabButton onClick={() => setActiveId(job.id)}>
+                            <StyledTabButton key={index} onClick={() => setActiveId(job.id)}>
                                 <span>{job.company}</span>
                             </StyledTabButton>
                         )
