@@ -26,7 +26,8 @@ const Summary = styled.div``;
 
 const BlogPostPreview = (post) => {
     return (
-        <Link href={post.url}>
+        // https://nextjs.org/docs/messages/link-passhref
+        <Link href={post.url} passHref>
             <StyledBlogPostPreview>
                 <Row>
                     <Tags>
