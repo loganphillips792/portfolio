@@ -113,8 +113,8 @@ export default function WorkExperienceSection() {
                         <div>
                             <span>{jobToDisplay.company}</span>
 
-                            {jobToDisplay.details.map(detail => (
-                                <li>
+                            {jobToDisplay.details.map((detail, index) => (
+                                <li key={index}>
                                     {detail}
                                 </li>
                             ))}
