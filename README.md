@@ -6,4 +6,6 @@
 
 npm install
 
-node index.js
+npm run dev
+
+In browser: http://localhost:3000/blog/posts/hello-world
