@@ -35,6 +35,10 @@ fs.readdir('./posts', (err, files) => {
 });
 */
 
+app.get('/', (req, res) => {
+    res.render('pages/home', { title: 'Logan' });
+});
+
 app.get('/blog/posts/:articleName', (req, res) => {
     console.log('Hello world', req.params);
 
