@@ -7,7 +7,11 @@
     "dev": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint:js": "eslint '**/*.js'",
+    "lint:css": "stylelint '**/*.css'",
+    "lint:ejs": "eslint '**/*.ejs'",
+    "format": "prettier --write '**/*.{js,css,ejs}'"
   },
   "author": "",
   "license": "ISC",
@@ -21,8 +25,13 @@
     "webpack-dev-server": "^5.2.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.18.0",
     "css-loader": "^7.1.2",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
     "prettier-eslint": "^16.3.0",
     "style-loader": "^4.0.0",
     "webpack": "^5.97.1",
