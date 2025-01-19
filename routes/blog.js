@@ -30,6 +30,7 @@ router.get('/blog/posts', (req, res) => {
 
     res.render('pages/blog', {
         // title: post.content.attributes.title,
+        pageTitle: 'Blog',
         posts: blogPosts,
     });
 });
@@ -65,7 +66,7 @@ router.get('/blog/posts/:articleName', (req, res) => {
     let post = mdFilesArray.find((post) => post.slug === userSlug);
 
     res.render('post', {
-        title: post.content.attributes.title,
+        pageTitle: post.content.attributes.title,
         content: post.html,
     });
 });

@@ -1,11 +1,18 @@
-<div class="blog-container">
-    <ul class="<%= styles.postList %>"> 
-        <% posts.map((post)=>{ %>
-            <li class="<%= styles.postItem %>">
-                <a class="<%= styles.postLink %>" href="/blog/posts/<%= post.slug %>">
-                    <%= post.content.attributes.title %>
-                </a>
-            </li>
-        <% }) %>
-    </ul>
-</div>
+<html lang="en">
+    <%- include('../partials/head.ejs') %>
+    <body>
+        <div class="blog-container">
+            <h1>hello</h1>
+            <ul> 
+                <% posts.map((post)=>{ %>
+                    <li>
+                        <a href="/blog/posts/<%= post.slug %>">
+                            <%= post.content.attributes.title %>
+                        </a>
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
+        <%- include('../partials/footer.ejs') %>
+    </body>
+</html>
