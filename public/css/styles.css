@@ -1,40 +1,40 @@
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 50px;
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
 }
 h1 {
-  font-size: 36px;
-  font-weight: bold;
+    font-size: 36px;
+    font-weight: bold;
 }
 h2 {
-  font-size: 24px;
-  font-weight: bold;
+    font-size: 24px;
+    font-weight: bold;
 }
 h3 {
-  font-size: 18px;
-  font-weight: bold;
+    font-size: 18px;
+    font-weight: bold;
 }
 p {
-  font-size: 16px;
-  margin-bottom: 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
 }
 a {
-  color: #1a0dab;
-  text-decoration: none;
+    color: #1a0dab;
+    text-decoration: none;
 }
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* Blog styles  */
 
 h1 {
-  color: blue;
+    color: blue;
 }
 
 .blog-container {
-  border: 2px solid red;
+    border: 2px solid red;
 }

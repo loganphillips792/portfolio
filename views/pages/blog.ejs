@@ -3,13 +3,13 @@
     <body>
         <div class="blog-container">
             <h1>hello</h1>
-            <ul> 
+            <ul>
                 <% posts.map((post)=>{ %>
-                    <li>
-                        <a href="/blog/posts/<%= post.slug %>">
-                            <%= post.content.attributes.title %>
-                        </a>
-                    </li>
+                <li>
+                    <a href="/blog/posts/<%= post.slug %>">
+                        <%= post.content.attributes.title %>
+                    </a>
+                </li>
                 <% }) %>
             </ul>
         </div>

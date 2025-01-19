@@ -7,9 +7,7 @@
         you can pass a variable from your route/controller 
         and interpolate here, e.g., <%= pageTitle || 'My Site' %> 
     -->
-    <title>
-        <%= pageTitle || 'My Portfolio' %>
-    </title>
+    <title><%= pageTitle || 'My Portfolio' %></title>
 
     <!-- Favicon (optional) -->
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
@@ -25,7 +23,14 @@
         <meta property="og:image" content="https://example.com/images/social-preview.jpg">
     -->
 
-    <%# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"> %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
-
+    <%#
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+    />
+    %>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css"
+    />
 </head>
