@@ -1,0 +1,11 @@
+<div class="blog-container">
+    <ul class="<%= styles.postList %>"> 
+        <% posts.map((post)=>{ %>
+            <li class="<%= styles.postItem %>">
+                <a class="<%= styles.postLink %>" href="/blog/posts/<%= post.slug %>">
+                    <%= post.content.attributes.title %>
+                </a>
+            </li>
+        <% }) %>
+    </ul>
+</div>

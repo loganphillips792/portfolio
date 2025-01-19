@@ -6,7 +6,35 @@ const { marked } = require('marked');
 const fs = require('fs');
 const { getAllBlogPosts } = require('../utils/blog');
 const path = require('path');
+const hljs = require('highlight.js');
 
+// hljs.registerLanguage('javascript', javascript);
+
+// Configure marked to use highlight.js
+marked.setOptions({
+    highlight: function (code, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+            return hljs.highlight(lang, code).value;
+        }
+        return hljs.highlightAuto(code).value;
+    },
+});
+
+// get all blog posts
+router.get('/blog/posts', (req, res) => {
+    console.log('Getting all blog posts...');
+
+    let blogPosts = getAllBlogPosts();
+
+    console.log('Blog Posts', blogPosts);
+
+    res.render('pages/blog', {
+        // title: post.content.attributes.title,
+        posts: blogPosts,
+    });
+});
+
+// get a specific blog post
 router.get('/blog/posts/:articleName', (req, res) => {
     console.log('Hello world', req.params);
 
@@ -16,8 +44,6 @@ router.get('/blog/posts/:articleName', (req, res) => {
     let mdFiles = fs
         .readdirSync(directory)
         .filter((file) => path.extname(file) === '.md');
-
-    getAllBlogPosts();
 
     let mdFilesArray = mdFiles.map((file) => {
         let slug = path.basename(file, path.extname(file));
@@ -36,7 +62,8 @@ router.get('/blog/posts/:articleName', (req, res) => {
         };
     });
 
-    let post = mdFilesArray.find((post) => (post.slug = userSlug));
+    let post = mdFilesArray.find((post) => post.slug === userSlug);
+
     res.render('post', {
         title: post.content.attributes.title,
         content: post.html,
