@@ -1,10 +1,11 @@
-.container {
+.post-content-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 50px;
     font-family: Arial, sans-serif;
     line-height: 1.5;
 }
+
 h1 {
     font-size: 36px;
     font-weight: bold;
@@ -27,6 +28,64 @@ a {
 }
 a:hover {
     text-decoration: underline;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a2e; /* Dark background for navbar */
+    padding: 15px 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand a {
+    font-size: 28px;
+    font-weight: bold;
+    color: #6a11cb; /* Purple for DevBlog */
+    text-decoration: none;
+    background: linear-gradient(45deg, #6a11cb, #2575fc); /* Gradient for DevBlog */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item .nav-link {
+    color: #bbb; /* Light grey for nav links */
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-item .nav-link:hover,
+.nav-item .nav-link.active {
+    color: #fff; /* White on hover/active */
+    background: linear-gradient(45deg, #6a11cb, #2575fc); /* Gradient for active link */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-social {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icon {
+    color: #bbb; /* Light grey for social icons */
+    font-size: 22px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #fff; /* White on hover */
 }
 
 /* Blog styles  */
