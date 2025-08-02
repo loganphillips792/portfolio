@@ -23,10 +23,19 @@ module.exports = {
                 let fileContent = fs.readFileSync(filePath, 'utf-8');
 
                 const content = fm(fileContent);
+                const wordsPerMinute = 200;
+                const wordCount = content.body.split(/\s+/).length;
+                const readTime = Math.ceil(wordCount / wordsPerMinute);
 
                 return {
                     slug: slug,
                     content: content,
+                    readTime: readTime,
+                    tags: content.attributes.tags
+                        ? content.attributes.tags
+                              .split(',')
+                              .map((tag) => tag.trim())
+                        : [],
                 };
             });
 
