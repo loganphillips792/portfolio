@@ -38,3 +38,46 @@ h1 {
 .blog-container {
     border: 2px solid red;
 }
+
+.blog-posts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 30px;
+}
+
+.blog-post-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post-item h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.blog-post-item h2 a {
+    color: #333;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.blog-post-item h2 a:hover {
+    text-decoration: underline;
+}
+
+.blog-post-item p {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.blog-post-item .post-date {
+    font-size: 14px;
+    color: #999;
+    display: block;
+    text-align: right;
+}

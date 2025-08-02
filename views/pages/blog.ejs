@@ -3,15 +3,21 @@
     <body>
         <div class="blog-container">
             <h1>hello</h1>
-            <ul>
+            <div class="blog-posts">
                 <% posts.map((post)=>{ %>
-                <li>
-                    <a href="/blog/posts/<%= post.slug %>">
-                        <%= post.content.attributes.title %>
-                    </a>
-                </li>
+                <div class="blog-post-item">
+                    <h2>
+                        <a href="/blog/posts/<%= post.slug %>">
+                            <%= post.content.attributes.title %>
+                        </a>
+                    </h2>
+                    <p><%= post.content.attributes.description %></p>
+                    <span class="post-date">
+                        <%= new Date(post.content.attributes.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                    </span>
+                </div>
                 <% }) %>
-            </ul>
+            </div>
         </div>
         <%- include('../partials/footer.ejs') %>
     </body>

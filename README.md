@@ -9,3 +9,8 @@ npm install
 npm run dev
 
 In browser: http://localhost:3000/blog/posts/hello-world
+
+# TODO
+
+- Adds tags
+- Add filtering
