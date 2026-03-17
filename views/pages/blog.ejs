@@ -1,17 +1,42 @@
 <html lang="en">
     <%- include('../partials/head.ejs') %>
     <body>
+        <%- include('../partials/nav.ejs') %>
         <div class="blog-container">
-            <h1>hello</h1>
-            <ul>
+            <h1>Blog Posts</h1>
+            <div class="blog-posts">
                 <% posts.map((post)=>{ %>
-                <li>
-                    <a href="/blog/posts/<%= post.slug %>">
-                        <%= post.content.attributes.title %>
-                    </a>
-                </li>
+                <div class="blog-post-item">
+                    <div class="blog-post-image"></div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span class="post-date">
+                                <i class="fa-solid fa-calendar"></i> <%= new Date(post.content.attributes.date).toISOString().slice(0,10) %>
+                            </span>
+                            <span class="read-time">
+                                <i class="fa-solid fa-clock"></i> <%= post.readTime || 0 %> min read
+                            </span>
+                        </div>
+                        <h2>
+                            <a href="/blog/posts/<%= post.slug %>">
+                                <%= post.content.attributes.title %>
+                            </a>
+                        </h2>
+                        <p><%= post.content.attributes.description %></p>
+                        <div class="blog-post-tags">
+                            <% if (post.tags && post.tags.length > 0) { %>
+                                <% post.tags.forEach(tag => { %>
+                                    <span class="tag"><%= tag %></span>
+                                <% }) %>
+                            <% } %>
+                        </div>
+                        <a href="/blog/posts/<%= post.slug %>" class="read-more">
+                            Read More <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
                 <% }) %>
-            </ul>
+            </div>
         </div>
         <%- include('../partials/footer.ejs') %>
     </body>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    <%- include('../partials/head.ejs') %>
+    <body>
+        <%- include('../partials/nav.ejs') %>
+
+        <div class="container">
+            <h1 class="text-3xl font-bold text-foreground mb-8">Professional Experience</h1>
+
+            <%
+            const timelineItems = [
+                {
+                    id: 'senior-frontend',
+                    date: '2022 - Present',
+                    title: 'Senior Frontend Developer',
+                    company: 'TechCorp Inc. • San Francisco, CA',
+                    description: 'Lead frontend development for a team of 5 developers, building scalable React applications serving 100k+ users. Implemented modern development practices and improved application performance by 40%.',
+                    technologies: ['React', 'TypeScript', 'Node.js', 'AWS', 'GraphQL'],
+                    bulletPoints: [
+                        'Led migration from legacy JavaScript to TypeScript',
+                        'Implemented automated testing reducing bugs by 60%',
+                        'Mentored junior developers and conducted code reviews'
+                    ]
+                },
+                {
+                    id: 'frontend-developer',
+                    date: '2020 - 2022',
+                    title: 'Frontend Developer',
+                    company: 'StartupXYZ • Austin, TX',
+                    description: 'Developed and maintained multiple web applications using React and Node.js. Collaborated with design team to implement pixel-perfect UI components and optimize user experience.',
+                    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'REST APIs'],
+                    bulletPoints: [
+                        'Built responsive web apps with 99.9% uptime',
+                        'Reduced page load times by 50% through optimization',
+                        'Integrated third-party APIs and payment systems'
+                    ]
+                },
+                {
+                    id: 'junior-web-developer',
+                    date: '2019 - 2020',
+                    title: 'Junior Web Developer',
+                    company: 'Digital Agency Pro • Denver, CO',
+                    description: 'Assisted in the development of client websites, focusing on front-end implementation and basic back-end integrations. Gained foundational experience in web development best practices.',
+                    technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'WordPress'],
+                    bulletPoints: [
+                        'Contributed to 10+ client projects, ensuring timely delivery',
+                        'Optimized website performance for mobile devices',
+                        'Collaborated with senior developers on code reviews and debugging'
+                    ]
+                }
+            ];
+            %>
+
+            <div class="relative space-y-8">
+                <div class="absolute left-6 top-0 w-0.5 h-full bg-timeline-line rounded-full"></div>
+                <% timelineItems.forEach((item, index) => { %>
+                    <div class="relative pl-16 animate-slide-up" style="animation-delay: <%= index * 150 %>ms;">
+                        <div class="absolute left-4 top-2 w-4 h-4 bg-timeline-dot rounded-full border-4 border-background animate-glow"></div>
+                        <div class="group bg-card border border-border rounded-lg p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-elegant">
+                            <div class="text-sm text-primary font-semibold mb-2">
+                                <%= item.date %>
+                            </div>
+                            <div class="mb-3">
+                                <h3 class="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                                    <%= item.title %>
+                                </h3>
+                                <h4 class="text-lg text-muted-foreground font-medium">
+                                    <%= item.company %>
+                                </h4>
+                            </div>
+                            <p class="text-muted-foreground leading-relaxed mb-4">
+                                <%= item.description %>
+                            </p>
+                            <% if (item.technologies && item.technologies.length > 0) { %>
+                                <div class="flex flex-wrap gap-2">
+                                    <% item.technologies.forEach((tech, techIndex) => { %>
+                                        <span class="badge text-xs bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors duration-200">
+                                            <%= tech %>
+                                        </span>
+                                    <% }) %>
+                                </div>
+                            <% } %>
+                            <% if (item.bulletPoints && item.bulletPoints.length > 0) { %>
+                                <ul class="list-disc pl-5 mt-4 text-muted-foreground">
+                                    <% item.bulletPoints.forEach(point => { %>
+                                        <li><%= point %></li>
+                                    <% }) %>
+                                </ul>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+
+        <%- include('../partials/footer.ejs') %>
+    </body>
+</html>
